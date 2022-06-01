@@ -68,10 +68,10 @@ ggplot(dfGdp, aes(x = growth2, y = lag(growth2))) + geom_point()
 tsGdp <- ts(dfGdp$growth2[-1], frequency = 4, start = 1947.25)
 tsGdp
 plot(tsGdp)
-acf(tsGdp)
+acf(tsGdp) # auto-correlation plot
 
 # Decomposition
-dGdp <- decompose(ts(dfGdp$gdp2, frequency = 4, start = 1947), "multiplicative")
+dGdp <- decompose(ts(dfGdp$gdp2, frequency = 4, start = 1947), "multiplicative") #probably not what you want to use in real settings, better do it yourself
 str(dGdp)
 plot(dGdp$seasonal)
 plot(dGdp$trend)
